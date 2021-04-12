@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+// Class which provides methods to check an int for various properties
 public class Lambdas {
     public static boolean testType(PerformOperation p, int i){
         return p.check(i);
     }
+
     public PerformOperation isOdd() {
         return num -> num % 2 != 0;
     }
@@ -36,6 +38,7 @@ public class Lambdas {
         Lambdas lam = new Lambdas();
 
         try {
+            System.out.println("Enter the input, beginning with number of test cases: ");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             int testCases = Integer.parseInt(br.readLine());
             String result = null;
@@ -56,13 +59,15 @@ public class Lambdas {
                 else if (testType == 3) {
                     result = lam.testType(lam.isPalindrome(), numToTest) ? "PALINDROME" :  "NOT PALINDROME";
                 }
-                //System.out.println(result);
+
                 results.add(result);
             }
             results.forEach(System.out::println);
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Please format the input correctly as an integer!");
         }
 
     }
