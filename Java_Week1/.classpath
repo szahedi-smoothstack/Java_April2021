@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="Assignment_DayOne"/>
 	<classpathentry kind="src" path="Assignment_DayTwo"/>
 	<classpathentry kind="src" path="Assignment_DayThree"/>
+	<classpathentry kind="lib" path="C:/Users/szahe_000/Desktop/junit-4.13.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
