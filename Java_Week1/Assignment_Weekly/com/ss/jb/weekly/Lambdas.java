@@ -1,18 +1,16 @@
 package com.ss.jb.weekly;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 // Class which provides methods to check an int for various properties
 public class Lambdas {
-    public static boolean testType(PerformOperation p, int i){
-        return p.check(i);
+    public boolean testType(PerformOperation p, int i){
+        return p.intTest(i);
     }
 
     public PerformOperation isOdd() {
@@ -34,18 +32,27 @@ public class Lambdas {
         };
     }
 
+    /**
+     * Sample input to use:
+     * 5
+     * 1 4
+     * 2 5
+     * 3 898
+     * 1 3
+     * 2 12
+     */
     public static void main(String[] args) {
         Lambdas lam = new Lambdas();
 
         try {
             System.out.println("Enter the input, beginning with number of test cases: ");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            int testCases = Integer.parseInt(br.readLine());
+            Scanner scanner = new Scanner(System.in);
+            int testCases = Integer.parseInt(scanner.nextLine());
             String result = null;
             List<String> results = new ArrayList<>();
 
             while (testCases-- > 0) {
-                String s = br.readLine().trim();
+                String s = scanner.nextLine().trim();
                 StringTokenizer st = new StringTokenizer(s);
                 int testType = Integer.parseInt(st.nextToken());
                 int numToTest = Integer.parseInt(st.nextToken());
@@ -64,9 +71,8 @@ public class Lambdas {
             }
             results.forEach(System.out::println);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             System.out.println("Please format the input correctly as an integer!");
         }
 

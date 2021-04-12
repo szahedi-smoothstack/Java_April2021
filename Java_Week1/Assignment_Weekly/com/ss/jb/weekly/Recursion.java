@@ -14,34 +14,21 @@ public class Recursion {
      * @return true/false if the values of the int[] equal the target or not
      */
     public boolean groupSumClump(int start, int[] nums, int target) {
+        // this case ends the recursion and checks if empty array is given
         if (start >= nums.length) {
             return (target == 0);
         }
 
-        if (start !=0 ) {
-            int count = 0;
-            int i = start;
-            while (i < nums.length && nums[start] == nums[i]) {
+        int sum = nums[start];
+        int count = 1;
+        for (int i = start + 1; i< nums.length; i++) {
+            if (nums[i] == nums[start]) {
+                sum += nums[i];
                 count++;
-                i++;
             }
-
-            //choose all adjacent identical--i took off the (-1) from count
-            if (groupSumClump(i, nums, target - ((count) * nums[start]))) return true;
-
-            //choose none
-            if (groupSumClump(i, nums, target)) return true;
-            return false;
         }
-        else {
+        return groupSumClump(start + count, nums, target - sum)
+                || groupSumClump(start + count, nums, target);
 
-        //choose
-            if(groupSumClump(start+1, nums, target-nums[start])) return true;
-
-        //dont choose
-            if(groupSumClump(start+1, nums, target)) return true;
-
-            return false;
-        }
     }
 }
