@@ -9,7 +9,7 @@ public class SampleSingletonTests {
 
     @Test
     public void getInstanceTest() {
-        SampleSingleton ss = new SampleSingleton();
+        SampleSingleton ss = SampleSingleton.getInstance();
 
         assertNotNull(ss);
         assertTrue(ss instanceof SampleSingleton);

@@ -15,6 +15,8 @@ public class SampleSingleton {
 
     private static SampleSingleton instance = null;
 
+    private SampleSingleton(){}
+
     // Public method getting an instance of this class
     public static SampleSingleton getInstance() {
         if (instance == null) {
